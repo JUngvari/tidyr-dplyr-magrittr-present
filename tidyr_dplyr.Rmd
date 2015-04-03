@@ -1,0 +1,44 @@
+---
+title: "tidyr-dplyr-magrittr-present"
+author: "J+Z"
+date: "March 13, 2015 - April 10, 2015"
+output: html_document
+---
+
+This is an R Markdown document for using the packages tidyr, dplyr and magrittr. 
+For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+First, you should install and load the packages:
+
+```{r}
+#install.packages("tidyr", "dplyr", "magrittr")
+#library("tidyr", "dplyr", "magrittr"")
+```
+
+>>> "tidyr"
+
+tidyr uses just a few functions to easily tidy data. 
+It simplifies workflows by piping the results of one function into the next.
+
+There are just a few functions to remember, and their names are really self-explanatory.
+
+expand  - Expand data frame to include all combinations of levels.
+extract	- Extract one column into multiple columns.
+extract_numeric	- Extract numeric component of variable.
+gather	 - Gather columns into key-value pairs.
+separate	- Separate one column into multiple columns.
+seq_range	- Create an evenly spaced sequence of values from highest to lowest.
+spread	- Spread a key-value pair across multiple columns.
+spread_	- Standard-evaluation version of 'spread'.
+unite	- Unite multiple columns into one.
+unnest	- Unnest a list column.
+unnest_	- Standard-evaluation version of 'unnest'.
+
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
