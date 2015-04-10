@@ -63,15 +63,15 @@ There are times when our data is considered unstacked and a common attribute of 
 #longdf <- gather(nomo, year, Nest.Location)
 #head(longdf)  
 ```
+
 spread  - Spread a key-value pair across multiple columns.
 
 
 ```{r}
-original <- spread(longdf, year, Nest.Location)
-head(original)
-head(nomo)
+#original <- spread(longdf, year, Nest.Location)
+#head(original)
+#head(nomo)
 ```
-
 separate	- Separate one column into multiple columns.
 unite  - Unite multiple columns into one.
 
@@ -100,21 +100,25 @@ Let's organize the data by Year, then summarize average brood size and arrange i
 Using piping and dplyr commands it is easy.
 
 ```{r}
-new <- nomo %>% group_by(Year) %>% summarize(avg = mean(Brood.Size)) %>% arrange(Year)
+#new <- nomo %>% group_by(Year) %>% 
+#  summarize(avg = mean(Brood.Size)) %>% 
+#  arrange(Year)
 ```
 
 Operations
 
 There are seven fundamental functions of data transformation:
+Let's say you only want to see nest information where the brood size is 3
+```{r}
+#broods <- filter(nomo, Brood.Size==3) 
+#select() selecting variables
+#filter() provides basic filtering capabilities
+```
 
-select() selecting variables
-filter() provides basic filtering capabilities
+
 group_by() groups data by categorical levels
 summarise() summarise data by functions of choice
 arrange() ordering data --> equivalent of sort in Excel 
 join() joining separate dataframes
 mutate() create new variables
-
-
-
 

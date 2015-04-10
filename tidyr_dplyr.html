@@ -85,24 +85,35 @@ img {
 <pre class="r"><code>#nomo &lt;- read.csv(&quot;data/AllDataMaster.csv&quot;)</code></pre>
 <p>Let’s take a look at the data</p>
 <pre class="r"><code>#head(nomo)</code></pre>
-<p>Let’s organize the data by year and Nest.Location Use Excel.</p>
+<p>Let’s organize the data by year and Nest.Location using Excel.</p>
 <p>Gather and spread are similar to pivot tables.</p>
 <p>gather - Gather columns into key-value pairs. spread - Spread a key-value pair across multiple columns.</p>
-<p>Description: There are times when our data is considered unstacked and a common attribute of concern is spread out across columns. To reformat the data such that these common attributes are gathered together as a single variable, the gather() function will take multiple columns and collapse them into key-value pairs, duplicating all other columns as needed.</p>
+<p>There are times when our data is considered unstacked and a common attribute of concern is spread out across columns. To reformat the data such that these common attributes are gathered together as a single variable, the gather() function will take multiple columns and collapse them into key-value pairs, duplicating all other columns as needed.</p>
 <pre class="r"><code>#longdf &lt;- gather(nomo, year, Nest.Location)
 #head(longdf)  </code></pre>
 <p>spread - Spread a key-value pair across multiple columns.</p>
-<p>original &lt;- spread(longdf, year, Nest.Location) head(original) head(nomo)</p>
+<pre class="r"><code>#original &lt;- spread(longdf, year, Nest.Location)
+#head(original)
+#head(nomo)</code></pre>
 <p>separate - Separate one column into multiple columns. unite - Unite multiple columns into one.</p>
 <p>These are similar to Text to Column and to Concatenate in excel.</p>
 <p>Other useful commands of tidyr seq_range - Create an evenly spaced sequence of values from highest to lowest. unnest - Unnest a list column. expand - Expand data frame to include all combinations of levels. extract - Extract one column into multiple columns.</p>
 <p>It simplifies workflows by piping the results of one function into the next.</p>
 <p>dplyr useful words:</p>
-<p>tbl_df(nomo) - gives a screenshot of the data glimpse(nomo) - similar to str(), summarizes the data %&gt;% passes an object on to the argument ‘piping’</p>
-<p>new &lt;- nomo %&gt;% group_by(Year) %&gt;% summarize(avg = mean(Brood.Size)) %&gt;% arrange(Year)</p>
+<p>tbl_df(nomo) - gives a screenshot of the data</p>
+<p>glimpse(nomo) - similar to str(), summarizes the data</p>
+<p>%&gt;% passes an object on to the argument ‘piping’</p>
+<p>Let’s organize the data by Year, then summarize average brood size and arrange it by year.</p>
+<p>Using piping and dplyr commands it is easy.</p>
+<pre class="r"><code>#new &lt;- nomo %&gt;% group_by(Year) %&gt;% 
+#  summarize(avg = mean(Brood.Size)) %&gt;% 
+#  arrange(Year)</code></pre>
 <p>Operations</p>
-<p>There are seven fundamental functions of data transformation:</p>
-<p>select() selecting variables filter() provides basic filtering capabilities group_by() groups data by categorical levels summarise() summarise data by functions of choice arrange() ordering data –&gt; equivalent of sort in Excel join() joining separate dataframes mutate() create new variables</p>
+<p>There are seven fundamental functions of data transformation: Let’s say you only want to see nest information where the brood size is 3</p>
+<pre class="r"><code>#broods &lt;- filter(nomo, Brood.Size==3) 
+#select() selecting variables
+#filter() provides basic filtering capabilities</code></pre>
+<p>group_by() groups data by categorical levels summarise() summarise data by functions of choice arrange() ordering data –&gt; equivalent of sort in Excel join() joining separate dataframes mutate() create new variables</p>
 
 
 </div>
