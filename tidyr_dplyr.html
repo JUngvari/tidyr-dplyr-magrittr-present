@@ -67,21 +67,29 @@ img {
 </div>
 
 
-<p>This is an R Markdown document for using the packages tidyr, dplyr and magrittr. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>. tidyr <a href="https://github.com/hadley/tidyr" class="uri">https://github.com/hadley/tidyr</a> dplyr <cran.rstudio.com web packages dplyr vignettes introduction.html> First, you should install and load the packages: tidyr and dplyr packages provide fundamental functions for Cleaning, Processing, &amp; Manipulating Data</p>
-<pre class="r"><code>#install.packages(&quot;tidyr&quot;, &quot;dplyr&quot;, &quot;magrittr&quot;)
-#library(&quot;tidyr&quot;, &quot;dplyr&quot;, &quot;magrittr&quot;&quot;)</code></pre>
+<p>This is an R Markdown document for using the packages tidyr, dplyr and magrittr. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>tidyr <a href="https://github.com/hadley/tidyr" class="uri">https://github.com/hadley/tidyr</a></p>
+<p>dplyr <a href="https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html" class="uri">https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html</a></p>
+<p>First, you should install and load the packages: tidyr and dplyr packages provide fundamental functions for ## Cleaning, Processing, &amp; Manipulating Data</p>
 <p>Entering data in spreadsheet programs such as excel cutivates the use of the same program for Reshaping Data. Using spreadsheets for data manipulation, relies on propriatoriy software, and for example Pivot tables. I am guilty of using pivot tables, text to column and concatenate in excel all the time.</p>
 <blockquote>
 <p>“tidyr” and “dplyr”</p>
 </blockquote>
+<pre class="r"><code>#install.packages(&quot;tidyr&quot;, &quot;dplyr&quot;, &quot;magrittr&quot;)
+#library(&quot;tidyr&quot;, &quot;dplyr&quot;, &quot;magrittr&quot;&quot;)</code></pre>
 <p>tidyr uses just a few functions to easily tidy data, and their names are really self-explanatory.</p>
-<p>tidyr gather() &lt;-&gt; spread() separate() &lt;-&gt; unite()</p>
+<p>tidyr</p>
+<p>gather() &lt;-&gt; spread()</p>
+<p>separate() &lt;-&gt; unite()</p>
+<p>For example, let’s gather all the data information together from our test dataset.</p>
+<pre class="r"><code>#nomo &lt;- read.csv(&quot;data/AllDataMaster.csv&quot;)</code></pre>
+<p>Let’s take a look at the data</p>
+<pre class="r"><code>#head(nomo)</code></pre>
+<p>Let’s organize the data by year and Nest.Location Use Excel.</p>
 <p>Gather and spread are similar to pivot tables.</p>
 <p>gather - Gather columns into key-value pairs. spread - Spread a key-value pair across multiple columns.</p>
 <p>Description: There are times when our data is considered unstacked and a common attribute of concern is spread out across columns. To reformat the data such that these common attributes are gathered together as a single variable, the gather() function will take multiple columns and collapse them into key-value pairs, duplicating all other columns as needed.</p>
-<p>For example, let’s gather all the data information together from our test dataset.</p>
-<pre class="r"><code>#nomo &lt;- read.csv(&quot;data/AllDataMaster.csv&quot;)
-#longdf &lt;- gather(nomo, year, Nest.Location)
+<pre class="r"><code>#longdf &lt;- gather(nomo, year, Nest.Location)
 #head(longdf)  </code></pre>
 <p>spread - Spread a key-value pair across multiple columns.</p>
 <p>original &lt;- spread(longdf, year, Nest.Location) head(original) head(nomo)</p>
@@ -90,7 +98,11 @@ img {
 <p>Other useful commands of tidyr seq_range - Create an evenly spaced sequence of values from highest to lowest. unnest - Unnest a list column. expand - Expand data frame to include all combinations of levels. extract - Extract one column into multiple columns.</p>
 <p>It simplifies workflows by piping the results of one function into the next.</p>
 <p>dplyr useful words:</p>
-<p>tbl_df(nomo) - gives a screenshot of the data glimpse(nomo) - similar to str(), summarizes the data %&gt;% passes an object on to the argument ‘piping’ new &lt;- nomo %&gt;% group_by(Year) %&gt;% summarize(avg = mean(Brood.Size)) %&gt;% arrange(Year) Operations There are seven fundamental functions of data transformation: select() selecting variables filter() provides basic filtering capabilities group_by() groups data by categorical levels summarise() summarise data by functions of choice arrange() ordering data –&gt; equivalent of sort in Excel join() joining separate dataframes mutate() create new variables</p>
+<p>tbl_df(nomo) - gives a screenshot of the data glimpse(nomo) - similar to str(), summarizes the data %&gt;% passes an object on to the argument ‘piping’</p>
+<p>new &lt;- nomo %&gt;% group_by(Year) %&gt;% summarize(avg = mean(Brood.Size)) %&gt;% arrange(Year)</p>
+<p>Operations</p>
+<p>There are seven fundamental functions of data transformation:</p>
+<p>select() selecting variables filter() provides basic filtering capabilities group_by() groups data by categorical levels summarise() summarise data by functions of choice arrange() ordering data –&gt; equivalent of sort in Excel join() joining separate dataframes mutate() create new variables</p>
 
 
 </div>

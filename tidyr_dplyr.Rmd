@@ -7,14 +7,14 @@ output: html_document
 
 This is an R Markdown document for using the packages tidyr, dplyr and magrittr. 
 For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
 tidyr <https://github.com/hadley/tidyr>
-dplyr <cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html> 
+
+dplyr <https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html> 
+
 First, you should install and load the packages:
-tidyr and dplyr packages provide fundamental functions for Cleaning, Processing, & Manipulating Data
-```{r}
-#install.packages("tidyr", "dplyr", "magrittr")
-#library("tidyr", "dplyr", "magrittr"")
-```
+tidyr and dplyr packages provide fundamental functions for 
+## Cleaning, Processing, & Manipulating Data
 
 Entering data in spreadsheet programs such as excel cutivates the use of the same program for Reshaping Data.
 Using spreadsheets for data manipulation, relies on propriatoriy software, and for example Pivot tables. I am guilty of using pivot tables, text to column and concatenate in excel all the time. 
@@ -22,22 +22,44 @@ Using spreadsheets for data manipulation, relies on propriatoriy software, and f
 
 > "tidyr" and "dplyr"
 
+```{r}
+#install.packages("tidyr", "dplyr", "magrittr")
+#library("tidyr", "dplyr", "magrittr"")
+```
+
+
 tidyr uses just a few functions to easily tidy data, and their names are really self-explanatory.
 
 tidyr 
+
+
   gather()    <-> spread()
+  
   separate()  <-> unite()
   
-Gather and spread are similar to pivot tables.
-
-gather	 - Gather columns into key-value pairs.
-spread  - Spread a key-value pair across multiple columns.
-
-Description: There are times when our data is considered unstacked and a common attribute of concern is spread out across columns. To reformat the data such that these common attributes are gathered together as a single variable, the gather() function will take multiple columns and collapse them into key-value pairs, duplicating all other columns as needed.
 
 For example, let's gather all the data information together from our test dataset.
 ```{r}
 #nomo <- read.csv("data/AllDataMaster.csv")
+```
+
+Let's take a look at the data
+```{r}
+#head(nomo)
+```
+
+Let's organize the data by year and Nest.Location 
+using Excel.
+
+Gather and spread are similar to pivot tables.
+
+gather   - Gather columns into key-value pairs.
+spread  - Spread a key-value pair across multiple columns.
+
+There are times when our data is considered unstacked and a common attribute of concern is spread out across columns. To reformat the data such that these common attributes are gathered together as a single variable, the gather() function will take multiple columns and collapse them into key-value pairs, duplicating all other columns as needed.
+
+ 
+```{r}
 #longdf <- gather(nomo, year, Nest.Location)
 #head(longdf)  
 ```
@@ -67,9 +89,13 @@ useful words:
 tbl_df(nomo) - gives a screenshot of the data
 glimpse(nomo) - similar to str(), summarizes the data 
 %>% passes an object on to the argument  'piping'
+
 new <- nomo %>% group_by(Year) %>% summarize(avg = mean(Brood.Size)) %>% arrange(Year)
+
 Operations
+
 There are seven fundamental functions of data transformation:
+
 select() selecting variables
 filter() provides basic filtering capabilities
 group_by() groups data by categorical levels
