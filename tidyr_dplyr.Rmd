@@ -117,8 +117,12 @@ Let's say you only want to see nest information where the brood size is 3
 
 
 group_by() groups data by categorical levels
+
 summarise() summarise data by functions of choice
+
 arrange() ordering data --> equivalent of sort in Excel 
+
 join() joining separate dataframes
+
 mutate() create new variables
 
