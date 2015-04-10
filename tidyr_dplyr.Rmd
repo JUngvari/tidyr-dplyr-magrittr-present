@@ -35,7 +35,7 @@ spread  - Spread a key-value pair across multiple columns.
 
 Description: There are times when our data is considered unstacked and a common attribute of concern is spread out across columns. To reformat the data such that these common attributes are gathered together as a single variable, the gather() function will take multiple columns and collapse them into key-value pairs, duplicating all other columns as needed.
 
-For example, let'd gather all the data information together from our test dataset.
+For example, let's gather all the data information together from our test dataset.
 ```{r}
 #nomo <- read.csv("data/AllDataMaster.csv")
 #longdf <- gather(nomo, year, Nest.Location)
