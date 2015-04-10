@@ -65,9 +65,12 @@ There are times when our data is considered unstacked and a common attribute of 
 ```
 spread  - Spread a key-value pair across multiple columns.
 
+
+```{r}
 original <- spread(longdf, year, Nest.Location)
 head(original)
 head(nomo)
+```
 
 separate	- Separate one column into multiple columns.
 unite  - Unite multiple columns into one.
@@ -87,10 +90,18 @@ dplyr
 useful words:
 
 tbl_df(nomo) - gives a screenshot of the data
+
 glimpse(nomo) - similar to str(), summarizes the data 
+
 %>% passes an object on to the argument  'piping'
 
+Let's organize the data by Year, then summarize average brood size and arrange it by year.
+
+Using piping and dplyr commands it is easy.
+
+```{r}
 new <- nomo %>% group_by(Year) %>% summarize(avg = mean(Brood.Size)) %>% arrange(Year)
+```
 
 Operations
 
