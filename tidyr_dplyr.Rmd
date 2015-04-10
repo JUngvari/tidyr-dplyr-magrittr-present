@@ -126,3 +126,6 @@ join() joining separate dataframes
 
 mutate() create new variables
 
+For a more efficient tutorial use:
+
+<https://rpubs.com/bradleyboehmke/data_wrangling>
