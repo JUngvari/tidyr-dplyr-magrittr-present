@@ -23,8 +23,8 @@ Using spreadsheets for data manipulation, relies on propriatoriy software, and f
 > "tidyr" and "dplyr"
 
 ```{r}
-#install.packages("tidyr", "dplyr", "magrittr")
-#library("tidyr", "dplyr", "magrittr"")
+install.packages(c("tidyr", "dplyr", "magrittr"))
+#library("tidyr", "dplyr", "magrittr")
 ```
 
 
@@ -40,7 +40,7 @@ tidyr
 
 For example, let's gather all the data information together from our test dataset.
 ```{r}
-#nomo <- read.csv("data/AllDataMaster.csv")
+nomo <- read.csv("data/AllDataMaster.csv")
 ```
 
 Let's take a look at the data
@@ -60,16 +60,16 @@ There are times when our data is considered unstacked and a common attribute of 
 
  
 ```{r}
-#longdf <- gather(nomo, year, Nest.Location)
-#head(longdf)  
+longdf <- gather(nomo, year, Nest.Location)
+head(longdf)  
 ```
 
 spread  - Spread a key-value pair across multiple columns.
 
 
 ```{r}
-#original <- spread(longdf, year, Nest.Location)
-#head(original)
+original <- spread(longdf, year, Nest.Location)
+head(original)
 #head(nomo)
 ```
 separate	- Separate one column into multiple columns.
@@ -100,9 +100,7 @@ Let's organize the data by Year, then summarize average brood size and arrange i
 Using piping and dplyr commands it is easy.
 
 ```{r}
-#new <- nomo %>% group_by(Year) %>% 
-#  summarize(avg = mean(Brood.Size)) %>% 
-#  arrange(Year)
+new <- nomo %>% group_by(Year, na.rm=TRUE) %>%  summarize(avg = mean(Brood.Size)) %>%  arrange(Year)
 ```
 
 Operations
@@ -114,7 +112,7 @@ Let's say you only want to see nest information where the brood size is 3
 #select() selecting variables
 #filter() provides basic filtering capabilities
 ```
-
+brood3 <- filter(nomo, Brood.Size==3)
 
 group_by() groups data by categorical levels
 
