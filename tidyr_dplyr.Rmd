@@ -100,7 +100,10 @@ Let's organize the data by Year, then summarize average brood size and arrange i
 Using piping and dplyr commands it is easy.
 
 ```{r}
-new <- nomo %>% group_by(Year, na.rm=TRUE) %>%  summarize(avg = mean(Brood.Size)) %>%  arrange(Year)
+new <- nomo %>% 
+group_by(Year, na.rm=TRUE) %>%  
+summarize(avg = mean(Brood.Size)) %>%  
+arrange(Year)
 ```
 
 Operations
